@@ -1,4 +1,4 @@
 
-let ID = true; // Zmienna ID może być true lub false, w zależności od tego, czy użytkownik ma identyfikator.
+let ID = true; 
 let message = ID ? "Masz dostęp do lokalu." : "Nie masz dostępu do lokalu.";
 console.log(message);
