@@ -40,6 +40,4 @@ switch (prize) {
         message += `${prize}: Niestety, nie ma nagrody dla tej opcji. Jestes slaby Pzdr`;
         break;
 }
-
-// 5. Wyświetl ostateczny komunikat użytkownikowi.
 console.log(message);
