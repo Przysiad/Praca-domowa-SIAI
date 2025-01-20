@@ -1,0 +1,45 @@
+
+let prizeInput = prompt("Wybierz liczbę z przedziału od 0 do 10:");
+let prize = Number(prizeInput);
+let message = "Wybrana opcja to ";
+switch (prize) {
+    case 0:
+        message += `${prize}: Gratulacje! Wygrałeś darmową piłke.`;
+        break;
+    case 1:
+        message += `${prize}: Wygrywasz kupon na 2%% zniżki.`;
+        break;
+    case 2:
+        message += `${prize}: Otrzymujesz darmowe buty.`;
+        break;
+    case 3:
+        message += `${prize}: Wygrałeś bilet w jednąstrone do Rzymu.`;
+        break;
+    case 4:
+        message += `${prize}: Otrzymujesz darmową pizzę z Piaseczna.`;
+        break;
+    case 5:
+        message += `${prize}: Gratulacje! Wygrałeś książkę z Narwika.`;
+        break;
+    case 6:
+        message += `${prize}: Wygrywasz zestaw gadżetów z Ozarowa.`;
+        break;
+    case 7:
+        message += `${prize}: Otrzymujesz bilet na koncert 4747.`;
+        break;
+    case 8:
+        message += `${prize}: Wygrałeś weekendowy pobyt w spa dla 102 osób.`;
+        break;
+    case 9:
+        message += `${prize}: Otrzymujesz voucher na zakupy o wartości 2 zł.`;
+        break;
+    case 10:
+        message += `${prize}: Gratulacje! Wygrałeś czołg!`;
+        break;
+    default:
+        message += `${prize}: Niestety, nie ma nagrody dla tej opcji. Jestes slaby Pzdr`;
+        break;
+}
+
+// 5. Wyświetl ostateczny komunikat użytkownikowi.
+console.log(message);

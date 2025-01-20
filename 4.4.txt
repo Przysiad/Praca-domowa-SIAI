@@ -1,0 +1,26 @@
+
+let randomValue = Math.floor(Math.random() * 6); // Losowa liczba od 0 do 5
+let userQuestion = prompt("Zadaj swoje pytanie:");
+let answer;
+switch (randomValue) {
+    case 0:
+        answer = "Tak, na pewno!";
+        break;
+    case 1:
+        answer = "Nie, zdecydowanie nie.";
+        break;
+    case 2:
+        answer = "Może spróbuj później.";
+        break;
+    case 3:
+        answer = "Prawdopodobnie tak.";
+        break;
+    case 4:
+        answer = "Nie jestem pewien, spróbuj ponownie.";
+        break;
+    case 5:
+        answer = "Wygląda to obiecująco!";
+        break;
+}
+let finalMessage = `Twoje pytanie: "${userQuestion}"\nOdpowiedź: ${answer}`;
+console.log(finalMessage);
