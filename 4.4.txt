@@ -1,5 +1,5 @@
 
-let randomValue = Math.floor(Math.random() * 6); // Losowa liczba od 0 do 5
+let randomValue = Math.floor(Math.random() * 6); 
 let userQuestion = prompt("Zadaj swoje pytanie:");
 let answer;
 switch (randomValue) {
