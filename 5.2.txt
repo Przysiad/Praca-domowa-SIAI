@@ -1,0 +1,8 @@
+
+let counter = 0; 
+let step = 5; 
+
+do {
+    console.log(`Licznik: ${counter}`); 
+    counter += step; 
+} while (counter <= 200); 

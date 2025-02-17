@@ -1,0 +1,13 @@
+
+let outputContinue = "";
+const skipDigit = 5;
+for (let i = 0; i <= 10; i++) {
+  
+  if (i === skipDigit) {
+   
+    continue;
+  }
+  outputContinue += i;
+}
+console.log("Wynik z continue:", outputContinue);
+

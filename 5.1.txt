@@ -1,0 +1,18 @@
+
+const maxNumber = 5;
+const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+let isCorrect = false;
+while (!isCorrect) {
+    let userGuess = prompt(`Zgadnij liczbę od 1 do ${maxNumber}:`);
+    userGuess = Number(userGuess); // Konwersja na liczbę
+
+ 
+    if (userGuess === randomNumber) {
+        alert("Gratulacje! Odgadłeś liczbę!");
+        isCorrect = true;
+    } else {
+        alert(userGuess > randomNumber 
+            ? "Za wysoko! Spróbuj ponownie." 
+            : "Za nisko! Spróbuj ponownie.");
+    }
+}

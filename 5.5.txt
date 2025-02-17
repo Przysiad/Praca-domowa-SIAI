@@ -1,0 +1,37 @@
+
+const grid = [];
+
+
+const totalCells = 64;
+
+
+let counter = 0;
+
+
+let row;
+
+
+for (let i = 0; i <= totalCells; i++) {
+  
+  if (counter % 8 === 0) {
+    
+    
+    if (row !== undefined) {
+      grid.push(row);
+    }
+    
+    row = [];
+  }
+  
+  
+ 
+  if (counter < totalCells) {
+    row.push(counter);
+  }
+  
+  
+  counter++;
+}
+
+
+console.table(grid);
