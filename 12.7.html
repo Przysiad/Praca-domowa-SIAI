@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <title>JavaScript - Lista zakupów</title>
+  <style>
+    .ready {
+      background-color: #ddd;
+      color: red;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <input placeholder="Nowy element" maxlength="30">
+    <button>Dodaj</button>
+  </div>
+  <ul class="output"></ul>
+
+  <script>
+    const input = document.querySelector("input");
+    const button = document.querySelector("button");
+    const output = document.querySelector(".output");
+
+    let tasks = JSON.parse(localStorage.getItem("tasklist")) || [];
+
+    function saveTasks() {
+      localStorage.setItem("tasklist", JSON.stringify(tasks));
+    }
+
+    function updateFromDOM() {
+      tasks = [];
+      const items = output.querySelectorAll("li");
+      items.forEach(item => {
+        tasks.push({
+          name: item.textContent,
+          done: item.classList.contains("ready")
+        });
+      });
+      saveTasks();
+    }
+
+    function createTask(name, done = false) {
+      const li = document.createElement("li");
+      const text = document.createTextNode(name);
+      li.appendChild(text);
+      if (done) li.classList.add("ready");
+
+      li.addEventListener("click", () => {
+        li.classList.toggle("ready");
+        updateFromDOM();
+      });
+
+      output.appendChild(li);
+    }
+
+    tasks.forEach(task => createTask(task.name, task.done));
+
+    button.addEventListener("click", () => {
+      const val = input.value.trim();
+      if (val !== "") {
+        createTask(val, false);
+        updateFromDOM();
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

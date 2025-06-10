@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <title>12.5,</title>
+</head>
+<body>
+  <script>
+    function setCookie(nazwa, wartosc, dni) {
+      if (!isNaN(dni)) {
+        const data = new Date();
+        data.setTime(data.getTime() + (dni * 24 * 60 * 60 * 1000));
+        const wygasa = "expires=" + data.toUTCString();
+        document.cookie = `${nazwa}=${wartosc}; ${wygasa}; path=/`;
+      }
+    }
+
+    function getCookie(nazwa) {
+      const ciasteczka = document.cookie.split(";");
+      for (let i = 0; i < ciasteczka.length; i++) {
+        const cz = ciasteczka[i].trim().split("=");
+        if (cz[0] === nazwa) {
+          return cz[1];
+        }
+      }
+      return false;
+    }
+
+    function deleteCookie(nazwa) {
+      setCookie(nazwa, "", -1);
+    }
+
+    function testCookies() {
+      setCookie("user", "Jan", 3);
+      setCookie("theme", "ciemny", 5);
+    }
+
+    console.log("Przed:", document.cookie);
+    testCookies();
+    console.log("Po:", document.cookie);
+    console.log("user =", getCookie("user"));
+    console.log("theme =", getCookie("theme"));
+  </script>
+</body>
+</html>

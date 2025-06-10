@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <title>Ciasteczka</title>
+</head>
+<body>
+  <h1>Sprawdź konsolę (F12)</h1>
+  <script>
+    function setCookie(name, value, days) {
+      if (!isNaN(days)) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+      }
+    }
+
+    function getCookie(name) {
+      const cookies = document.cookie.split(";");
+      for (let i = 0; i < cookies.length; i++) {
+        const c = cookies[i].trim().split("=");
+        if (c[0] === name) {
+          return c[1];
+        }
+      }
+      return false;
+    }
+
+    setCookie("ciasteczko1", "abc", 1);
+    setCookie("ciasteczko2", "xyz", 1);
+
+    console.log("Cookies:", document.cookie);
+    console.log("ciasteczko1:", getCookie("ciasteczko1"));
+    console.log("ciasteczko2:", getCookie("ciasteczko2"));
+  </script>
+</body>
+</html>

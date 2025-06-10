@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <title>12.9</title>
+</head>
+<body>
+  <script>
+    const jsonData = [
+      { name: "Poznaj JavaScript", status: true },
+      { name: "Wypróbuj JSON", status: false }
+    ];
+
+    const newStr = JSON.stringify(jsonData);
+    const newObj = JSON.parse(newStr);
+
+    newObj.forEach(item => {
+      console.log(item.name);
+      console.log(item.status);
+    });
+  </script>
+</body>
+</html>

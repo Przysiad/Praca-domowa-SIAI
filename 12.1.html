@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+ <title>Pełny kurs JavaScriptu</title>
+</head>
+<body>
+ <div id="output">Pełny kurs JavaScriptu</div>
+ Szukany znak:
+ <input id="sText" type="text">
+ <br> Znaki zastępujące:
+ <input id="rText" type="text">
+ <br>
+ <button>Zastąp</button>
+ <script>
+   const output = document.getElementById('output');
+   const sText = document.getElementById('sText');
+   const rText = document.getElementById('rText');
+   const button = document.querySelector('button');
+
+   function lookup() {
+     let s = output.textContent;
+     let search = sText.value;
+     let rt = rText.value;
+     if (search === '') return;
+     const re = new RegExp(search, 'g');
+     if (s.match(re)) {
+       s = s.replace(re, rt);
+       output.textContent = s;
+     }
+   }
+
+   button.addEventListener('click', lookup);
+ </script>
+</body>
+</html>

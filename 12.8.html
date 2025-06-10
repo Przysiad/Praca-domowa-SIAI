@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>12.8</title>
+</head>
+<body>
+  <script>
+    const data = {
+      items: [
+        { name: "Mleko", bought: true },
+        { name: "Chleb", bought: false }
+      ]
+    };
+
+    function showItems(obj) {
+      obj.items.forEach(item => {
+        console.log(item.name);
+        console.log(item.bought);
+      });
+    }
+
+    showItems(data);
+  </script>
+</body>
+</html>

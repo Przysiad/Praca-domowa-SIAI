@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+ <title>Kurs JavaScriptu</title>
+</head>
+<body>
+ <div class="output"></div>
+ <input type="text" placeholder="Podaj adres e-mail">
+ <button>Sprawdź</button>
+ <script>
+   const input = document.querySelector('input');
+   const output = document.querySelector('.output');
+   const button = document.querySelector('button');
+
+   function validateEmail(email) {
+     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     return re.test(email);
+   }
+
+   button.addEventListener('click', () => {
+     const email = input.value.trim();
+     let response = '';
+     if (validateEmail(email)) {
+       response = 'Poprawny adres e-mail';
+       output.style.color = 'green';
+     } else {
+       response = 'Nieprawidłowy adres e-mail';
+       output.style.color = 'red';
+     }
+     output.textContent = response;
+   });
+ </script>
+</body>
+</html>
