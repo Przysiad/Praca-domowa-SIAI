@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Formularz</title>
+</head>
+<body>
+<form id="myForm">
+  <input type="text" id="First" name="First" placeholder="First" />
+  <input type="text" id="Last" name="Last" placeholder="Last" />
+  <input type="text" id="Age" name="Age" placeholder="Age" />
+  <button type="submit">Wyślij</button>
+</form>
+
+<script>
+const form = document.getElementById('myForm');
+
+function checker(value) {
+  console.log(value.length);
+  return value.length > 0;
+}
+
+form.addEventListener('submit', function(e) {
+  let error = false;
+
+  const first = form.First.value.trim();
+  const last = form.Last.value.trim();
+  const age = form.Age.value.trim();
+
+  if (!checker(first)) {
+    console.error('Błąd: pole First jest puste');
+    error = true;
+  }
+  if (!checker(last)) {
+    console.error('Błąd: pole Last jest puste');
+    error = true;
+  }
+  if (!checker(age)) {
+    console.error('Błąd: pole Age jest puste');
+    error = true;
+  } else if (parseInt(age) < 19) {
+    console.error('Błąd: wiek musi być co najmniej 19');
+    error = true;
+  }
+
+  if (error) {
+    e.preventDefault();
+  }
+});
+</script>
+</body>
+</html>

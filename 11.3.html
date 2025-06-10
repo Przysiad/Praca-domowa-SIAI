@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>11.3</title>
+  <script>
+    function message(msg, event) {
+      console.log(msg);
+      console.log(event);
+    }
+
+    document.addEventListener("DOMContentLoaded", function(e) {
+      message("Document gotowy", e);
+    });
+
+    window.onload = function(e) {
+      message("Okno gotowe", e);
+    };
+  </script>
+</head>
+<body>
+  <h1>Sprawdź konsolę</h1>
+</body>
+</html>

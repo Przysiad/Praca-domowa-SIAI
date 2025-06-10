@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>11.4</title>
+  <style>
+    .pole {
+      width: 200px;
+      height: 100px;
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <div class="pole"></div>
+
+  <script>
+    const elem = document.querySelector('.pole');
+    elem.textContent = 'Witaj, świecie!';
+    elem.style.width = '300px';
+    elem.style.height = '150px';
+    elem.style.backgroundColor = 'lightblue';
+
+    function show(color, event) {
+      console.log(color);
+      console.log(event.type);
+    }
+
+    elem.addEventListener('mousedown', e => show('red', e));
+    elem.addEventListener('mouseover', e => show('green', e));
+    elem.addEventListener('mouseout', e => show('blue', e));
+    elem.addEventListener('mouseup', e => show('yellow', e));
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <title>Testowanie JavaScriptu</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      background-color: white;
+    }
+    .red {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">1
+    <div id="dragme" draggable="true">Przeciągnij mnie, proszę!</div>
+  </div>
+  <div class="box">2</div>
+
+  <script>
+    const dragItem = document.getElementById('dragme');
+
+    dragItem.addEventListener('dragstart', () => {
+      dragItem.style.opacity = '0.5';
+    });
+
+    dragItem.addEventListener('dragend', () => {
+      dragItem.style.opacity = '';
+    });
+
+    const boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+      box.addEventListener('dragenter', () => {
+        box.classList.add('red');
+      });
+
+      box.addEventListener('dragover', e => {
+        e.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>

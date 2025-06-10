@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zmiana koloru divów</title>
+  <style>
+    .color-box {
+      width: 200px;
+      padding: 20px;
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kliknij, aby zmienić kolor tła</h1>
+
+  <div class="color-box">red</div>
+  <div class="color-box">blue</div>
+  <div class="color-box">green</div>
+  <div class="color-box">orange</div>
+  <div class="color-box">purple</div>
+
+  <script>
+    const boxes = document.querySelectorAll('.color-box');
+
+    boxes.forEach(function(box) {
+      box.addEventListener('click', function() {
+        const color = box.textContent;
+        box.style.backgroundColor = color;
+      });
+    });
+  </script>
+</body>
+</html>

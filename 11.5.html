@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title>Testowanie JavaScriptu</title>
+</head>
+<body>
+  <div class="output"></div>
+  <input type="text" name="message" placeholder="Twój komunikat">
+  <button class="btn1">Przycisk 1</button>
+  <button class="btn2">Przycisk 2</button>
+  <div>
+    <button class="btn3">Informacje</button>
+  </div>
+
+  <script>
+    const output = document.querySelector('.output');
+    const input = document.querySelector('input');
+    const btn1 = document.querySelector('.btn1');
+    const btn2 = document.querySelector('.btn2');
+    const btn3 = document.querySelector('.btn3');
+
+    const log = [];
+
+    function handleEvent(e) {
+      const item = {
+        value: input.value,
+        type: e.type,
+        className: e.target.className,
+        tag: e.target.tagName
+      };
+      log.push(item);
+      output.textContent = input.value;
+      output.textContent = '';
+    }
+
+    btn1.addEventListener('click', handleEvent);
+    btn2.addEventListener('click', handleEvent);
+    btn3.addEventListener('click', handleEvent);
+  </script>
+</body>
+</html>

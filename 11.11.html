@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>Ruchomy kwadrat</title>
+<style>
+  #square {
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    position: absolute;
+    left: 0;
+    top: 50px;
+  }
+</style>
+</head>
+<body>
+<div id="square"></div>
+
+<script>
+const square = document.getElementById('square');
+
+const state = {
+  speed: 10,
+  direction: 1,
+  position: 0,
+  timer: null,
+  count: 30
+};
+
+function move() {
+  if (state.count < 1) {
+    clearInterval(state.timer);
+    state.timer = null;
+    state.count = 30;
+    return;
+  }
+  state.position += state.speed * state.direction;
+
+  if (state.position > 800 || state.position < 0) {
+    state.direction *= -1;
+  }
+
+  square.style.left = state.position + 'px';
+  console.log('Pozycja:', state.position);
+  state.count--;
+}
+
+square.addEventListener('click', () => {
+  if (!state.timer) {
+    state.timer = setInterval(move, 30);
+  }
+});
+</script>
+</body>
+</html>
